@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    .one:first-child{color: blue;
+        letter-spacing: 5px;
+    
+    }
+    .one:only-child{
+        color: aquamarine;
+    }
+    :root{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    #there{
+        display: none;
+    }
+    .five:checked +#there{
+        display: block;
+    }
+   
+   
+  </style>
+</head>
+<body>
+    <div>
+        <div>
+            <ol>
+                <li class="one">ramin</li>
+                <li class="one">ramin</li>
+                <li class="one">ramin</li>
+                <li class="one">ramin</li>
+                <li class="one">ramin</li>
+              
+            </ol>
+            <div id="tow">
+                <label for="chak" >chack</label>
+                <input type="checkbox" class="five">
+                <p id="there">افرین خوشمان امد</p>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

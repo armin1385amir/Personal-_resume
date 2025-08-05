@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه لباس زنانه | مد روز</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fafafa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-actions {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .cart-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-pink-600">مد روز</a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#" class="font-medium hover:text-pink-600 transition">خانه</a>
+                    <div class="dropdown relative">
+                        <button class="font-medium hover:text-pink-600 transition flex items-center">
+                            محصولات
+                            <i class="fas fa-chevron-down mr-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 py-2 w-48">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">لباس تابستانی</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">لباس زمستانی</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">لباس مجلسی</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">اکسسوری</a>
+                        </div>
+                    </div>
+                    <a href="#" class="font-medium hover:text-pink-600 transition">تخفیف‌ها</a>
+                    <a href="#" class="font-medium hover:text-pink-600 transition">درباره ما</a>
+                    <a href="#" class="font-medium hover:text-pink-600 transition">تماس با ما</a>
+                </nav>
+                
+                <!-- Icons -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="relative">
+                        <i class="fas fa-search text-gray-600 hover:text-pink-600"></i>
+                    </button>
+                    <button class="relative" id="cart-btn">
+                        <i class="fas fa-shopping-cart text-gray-600 hover:text-pink-600"></i>
+                        <span class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="md:hidden" id="menu-btn">
+                        <i class="fas fa-bars text-gray-600 hover:text-pink-600"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 py-2 border-t" id="mobile-menu">
+                <a href="#" class="block py-2 hover:text-pink-600">خانه</a>
+                <a href="#" class="block py-2 hover:text-pink-600">محصولات</a>
+                <a href="#" class="block py-2 hover:text-pink-600">تخفیف‌ها</a>
+                <a href="#" class="block py-2 hover:text-pink-600">درباره ما</a>
+                <a href="#" class="block py-2 hover:text-pink-600">تماس با ما</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">مجموعه جدید تابستانه</h1>
+            <p class="text-xl mb-8">طراحی‌های منحصر به فرد برای بانوان شیک پوش</p>
+            <a href="#" class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-medium transition">مشاهده مجموعه</a>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">دسته‌بندی محصولات</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="category-card bg-gray-50 rounded-lg p-6 text-center transition">
+                    <div class="bg-pink-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-tshirt text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">لباس تابستانی</h3>
+                    <p class="text-sm text-gray-500 mt-1">120 محصول</p>
+                </a>
+                <a href="#" class="category-card bg-gray-50 rounded-lg p-6 text-center transition">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-snowflake text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">لباس زمستانی</h3>
+                    <p class="text-sm text-gray-500 mt-1">85 محصول</p>
+                </a>
+                <a href="#" class="category-card bg-gray-50 rounded-lg p-6 text-center transition">
+                    <div class="bg-purple-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-rings text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">لباس مجلسی</h3>
+                    <p class="text-sm text-gray-500 mt-1">64 محصول</p>
+                </a>
+                <a href="#" class="category-card bg-gray-50 rounded-lg p-6 text-center transition">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ring text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">اکسسوری</h3>
+                    <p class="text-sm text-gray-500 mt-1">42 محصول</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">محصولات ویژه</h2>
+                <a href="#" class="text-pink-600 hover:underline">مشاهده همه</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="sale-badge bg-red-500 text-white text-xs px-2 py-1 rounded">
+                        تخفیف ویژه
+                    </div>
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">پیراهن تابستانی طرح دار</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">320,000 تومان</span>
+                                <span class="text-gray-400 text-sm line-through mr-2">380,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616ac5b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">شلوار جین زنانه</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">250,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="sale-badge bg-red-500 text-white text-xs px-2 py-1 rounded">
+                        تخفیف ویژه
+                    </div>
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">کت زمستانی پشمی</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">490,000 تومان</span>
+                                <span class="text-gray-400 text-sm line-through mr-2">550,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">دامن مجلسی مشکی</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">180,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Banner -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg p-8 md:p-12 text-white">
+                <div class="md:flex items-center justify-between">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-3">تخفیف‌های ویژه فصل</h2>
+                        <p class="mb-4">تا 40% تخفیف برای محصولات منتخب تابستانه</p>
+                        <a href="#" class="bg-white text-pink-600 hover:bg-gray-100 px-6 py-2 rounded-full font-medium inline-block">همین حالا خرید کنید</a>
+                    </div>
+                    <div class="md:w-1/2 text-center">
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تخفیف ویژه" class="w-full max-w-md mx-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Arrivals -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">محصولات جدید</h2>
+                <a href="#" class="text-pink-600 hover:underline">مشاهده همه</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">بلوز زنانه سفید</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">210,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">دامن مجلسی مشکی</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">180,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="sale-badge bg-red-500 text-white text-xs px-2 py-1 rounded">
+                        جدید
+                    </div>
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">پیراهن تابستانی طرح دار</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">320,000 تومان</span>
+                                <span class="text-gray-400 text-sm line-through mr-2">380,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616ac5b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="لباس زنانه" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute bottom-0 left-0 right-0 bg-white p-3 flex justify-between">
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-pink-600">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <a href="#" class="font-medium hover:text-pink-600 block mb-1">شلوار جین زنانه</a>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <span class="text-pink-600 font-bold">250,000 تومان</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">نظرات مشتریان</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">1 هفته پیش</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">کیفیت محصولات فوق‌العاده است. لباس‌ها کاملاً مطابق تصاویر سایت بودند و در کمترین زمان ممکن به دستم رسیدند.</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="مشتری" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-medium">نازنین محمدی</h4>
+                            <p class="text-gray-500 text-sm">تهران</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">2 هفته پیش</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">خرید از این فروشگاه واقعاً راحت بود. پشتیبانی عالی و پاسخگوی سوالاتم بودند. حتماً دوباره خرید خواهم کرد.</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="مشتری" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-medium">سارا احمدی</h4>
+                            <p class="text-gray-500 text-sm">اصفهان</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">3 هفته پیش</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">کیفیت دوخت و دوام لباس‌ها عالی است. طرح‌ها شیک و به روز هستند. قیمت‌ها هم نسبت به کیفیت بسیار مناسب است.</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="مشتری" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-medium">مینا حسینی</h4>
+                            <p class="text-gray-500 text-sm">مشهد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="py-12 bg-pink-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">در خبرنامه ما عضو شوید</h2>
+            <p class="mb-6 max-w-2xl mx-auto">با عضویت در خبرنامه از جدیدترین محصولات، تخفیف‌های ویژه و پیشنهادات منحصر به فرد مطلع شوید.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="آدرس ایمیل شما" class="flex-grow px-4 py-3 rounded-r-lg focus:outline-none text-gray-800">
+                <button type="submit" class="bg-white text-pink-600 px-6 py-3 rounded-l-lg font-medium hover:bg-gray-100 transition">عضویت</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">مد روز</h3>
+                    <p class="text-gray-400 mb-4">فروشگاه تخصصی پوشاک زنانه با ارائه جدیدترین طرح‌ها و مدل‌های روز دنیا</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">لینک‌های سریع</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">خانه</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">محصولات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">تخفیف‌ها</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">درباره ما</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">دسته‌بندی‌ها</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">لباس تابستانی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">لباس زمستانی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">لباس مجلسی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">اکسسوری</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">تخفیف‌های ویژه</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">تماس با ما</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt ml-2"></i>
+                            تهران، خیابان ولیعصر، پلاک ۱۲۳۴
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone ml-2"></i>
+                            ۰۲۱-۱۲۳۴۵۶۷۸
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope ml-2"></i>
+                            info@modroz.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 مد روز. تمامی حقوق محفوظ است.</p>
+                <div class="flex space-x-6 space-x-reverse">
+                    <img src="https://www.zarinpal.com/_next/static/media/logo.f1b45362.svg" alt="زرین‌پال" class="h-8">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Logo_Shaparak.svg/1200px-Logo_Shaparak.svg.png" alt="شاپرک" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Shopping Cart Sidebar -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="cart-overlay"></div>
+    <div class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300" id="cart-sidebar">
+        <div class="h-full flex flex-col">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 class="text-lg font-bold">سبد خرید (3)</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="flex-grow overflow-y-auto p-4">
+                <!-- Cart Item 1 -->
+                <div class="cart-item flex py-4 border-b">
+                    <div class="w-20 h-20 bg-gray-100 rounded overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="محصول" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mr-3 flex-grow">
+                        <h4 class="font-medium">پیراهن تابستانی طرح دار</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-pink-600 font-medium">320,000 تومان</span>
+                            <div class="flex items-center">
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="mx-2">1</span>
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-red-500 self-start">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                
+                <!-- Cart Item 2 -->
+                <div class="cart-item flex py-4 border-b">
+                    <div class="w-20 h-20 bg-gray-100 rounded overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616ac5b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="محصول" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mr-3 flex-grow">
+                        <h4 class="font-medium">شلوار جین زنانه</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-pink-600 font-medium">250,000 تومان</span>
+                            <div class="flex items-center">
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="mx-2">1</span>
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-red-500 self-start">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                
+                <!-- Cart Item 3 -->
+                <div class="cart-item flex py-4 border-b">
+                    <div class="w-20 h-20 bg-gray-100 rounded overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="محصول" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mr-3 flex-grow">
+                        <h4 class="font-medium">کت زمستانی پشمی</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-pink-600 font-medium">490,000 تومان</span>
+                            <div class="flex items-center">
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="mx-2">1</span>
+                                <button class="text-gray-500 hover:text-pink-600 px-1">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-red-500 self-start">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-4 border-t">
+                <div class="flex justify-between mb-4">
+                    <span>جمع کل:</span>
+                    <span class="font-bold">1,060,000 تومان</span>
+                </div>
+                <a href="#" class="block bg-pink-600 hover:bg-pink-700 text-white text-center py-3 rounded-lg font-medium transition">تسویه حساب</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 bg-pink-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cart Toggle
+        const cartBtn = document.getElementById('cart-btn');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        
+        cartBtn.addEventListener('click', () => {
+            cartOverlay.classList.remove('hidden');
+            cartSidebar.classList.remove('translate-x-full');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartOverlay.classList.add('hidden');
+            cartSidebar.classList.add('translate-x-full');
+        });
+        
+        cartOverlay.addEventListener('click', () => {
+            cartOverlay.classList.add('hidden');
+            cartSidebar.classList.add('translate-x-full');
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Product Quick View (Example for one product)
+        const quickViewBtns = document.querySelectorAll('.quick-view');
+        
+        quickViewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Here you would show a modal with product details
+                alert('نمایش سریع محصول');
+            });
+        });
+    </script>
+</body>
+</html>
